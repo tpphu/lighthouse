@@ -89,14 +89,14 @@ class Node {
   }
 
   /**
-   * @param {!Node}
+   * @param {!Node} node
    */
   addDependent(node) {
     node.addDependency(this);
   }
 
   /**
-   * @param {!Node}
+   * @param {!Node} node
    */
   addDependency(node) {
     if (this._dependencies.includes(node)) {

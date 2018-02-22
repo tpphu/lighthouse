@@ -34,8 +34,7 @@ const NodeState = {
 class Simulator {
   /**
    * @param {!Node} graph
-   * @param {{rtt: number, throughput: number, fallbackTTFB: number,
-   *    maximumConcurrentRequests: number}=} options
+   * @param {Simulator.SimulationOptions=} options
    */
   constructor(graph, options) {
     this._graph = graph;
@@ -334,11 +333,22 @@ class Simulator {
 module.exports = Simulator;
 
 /**
- * @typedef {{
- *    estimatedTimeElapsed: number|undefined,
- *    timeElapsed: number|undefined,
- *    timeElapsedOvershoot: number|undefined,
- *    bytesDownloaded: number|undefined,
- * }}
+ * @typedef NodeTimingData
+ * @property {number|undefined} estimatedTimeElapsed
+ * @property {number|undefined} timeElapsed
+ * @property {number|undefined} timeElapsedOvershoot
+ * @property {number|undefined} bytesDownloaded
  */
 Simulator.NodeTimingData; // eslint-disable-line no-unused-expressions
+
+/**
+ * @typedef SimulationOptions
+ * @property {number|undefined} rtt
+ * @property {number|undefined} throughput
+ * @property {number|undefined} fallbackTTFB
+ * @property {number|undefined} maximumConcurrentRequests
+ * @property {number|undefined} cpuTaskMultiplier
+ * @property {number|undefined} layoutTaskMultiplier
+ */
+Simulator.SimulationOptions; // eslint-disable-line no-unused-expressions
+
